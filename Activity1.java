@@ -9,7 +9,7 @@ public class Activity1 {
 
         double Old, New;
 
-        for(int x=0; x<50; x++){
+        for(int x=0; x<=50; x++){
             Old = x;
             boolean flag = false;
 
@@ -17,15 +17,11 @@ public class Activity1 {
 
             int count = 0;
 
-            System.out.println("Testing " + x);
-
             while(flag == false){
                 double fun = function(x, id);
                 double pr = prime(x, id);
             
                 New = Old - fun/pr;
-                //System.out.println(New);
-                //System.out.println(Old);
 
                 if (Math.abs(New - Old) < 0.00001){
                     flag = true;
@@ -40,7 +36,12 @@ public class Activity1 {
                 }
                 if (count == iterations){
                   flag = true;
-                  System.out.println("Not Found");
+                  System.out.print("Initial x: " + x);
+                  System.out.print(" Not Found");
+                  System.out.print(" After " + iterations + " iterations");
+                  System.out.print(" Old: " + Old);
+                  System.out.print(" New: " + New);
+                  System.out.println("\n");
                 }
 
                 Old = New;
@@ -48,6 +49,7 @@ public class Activity1 {
                 count++;
             }
         }
+        System.out.println("Tested 50 times");
     }
 
     public static double solve(double x, double fun, double pr){
